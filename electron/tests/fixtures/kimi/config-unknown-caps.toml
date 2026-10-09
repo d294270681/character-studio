@@ -1,0 +1,10 @@
+default_model = "solo/plain"
+
+[providers.solo]
+type = "openai"
+api_key = "DUMMY-SOLO-KEY"
+
+[models."solo/plain"]
+provider = "solo"
+model = "plain"
+max_context_size = 128000

@@ -1,0 +1,4 @@
+api_key = "DUMMY-SECRET-DO-NOT-ECHO"
+
+[models."x"
+provider = "solo"

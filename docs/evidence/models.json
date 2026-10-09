@@ -1,0 +1,907 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-09",
+  "evidence_method": "Hugging Face API blobs=true at pinned revision; publisher cards and official Comfy documentation; local AST literals/workflow builders and file size inventory. No weights downloaded or generation executed.",
+  "active_count": 12,
+  "active_total_bytes": 98185654006,
+  "models": [
+    {
+      "id": "qwen-image-2512",
+      "path": "diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+      "kind": "diffusion",
+      "groups": [
+        "original"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/Qwen-Image_ComfyUI",
+      "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+      "source_path": "split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image_ComfyUI/revision/1f12b17be14c89b026c51a91d67c32f84bb047bc?blobs=true",
+      "sha256": "5dc80554d5d83390046a2f4a94ece06afb7700bf7b0aaf8bde9769793875876b",
+      "size_bytes": 20430679144,
+      "bytes": 20430679144,
+      "source_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+      "stages": [
+        "original"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 20430679144,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-image-edit-2511",
+      "path": "diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "kind": "diffusion",
+      "groups": [
+        "style"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/Qwen-Image-Edit_ComfyUI",
+      "revision": "f68ace85e60b4a02a323e394253731947657b7d2",
+      "source_path": "split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/f68ace85e60b4a02a323e394253731947657b7d2/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/f68ace85e60b4a02a323e394253731947657b7d2/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image-Edit_ComfyUI/revision/f68ace85e60b4a02a323e394253731947657b7d2?blobs=true",
+      "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+      "size_bytes": 20533762817,
+      "bytes": 20533762817,
+      "source_url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/f68ace85e60b4a02a323e394253731947657b7d2/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "stages": [
+        "style"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 20533762817,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen25-vl-7b",
+      "path": "text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "kind": "text_vision_encoder",
+      "groups": [
+        "original",
+        "style"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/Qwen-Image_ComfyUI",
+      "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+      "source_path": "split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image_ComfyUI/revision/1f12b17be14c89b026c51a91d67c32f84bb047bc?blobs=true",
+      "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+      "size_bytes": 9384670680,
+      "bytes": 9384670680,
+      "source_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "stages": [
+        "original",
+        "style"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 9384670680,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-image-vae",
+      "path": "vae/qwen_image_vae.safetensors",
+      "kind": "vae",
+      "groups": [
+        "original",
+        "style"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/Qwen-Image_ComfyUI",
+      "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+      "source_path": "split_files/vae/qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image_ComfyUI/revision/1f12b17be14c89b026c51a91d67c32f84bb047bc?blobs=true",
+      "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "size_bytes": 253806246,
+      "bytes": 253806246,
+      "source_url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/1f12b17be14c89b026c51a91d67c32f84bb047bc/split_files/vae/qwen_image_vae.safetensors",
+      "stages": [
+        "original",
+        "style"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 253806246,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-image-lightning-4",
+      "path": "loras/Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+      "kind": "lora",
+      "groups": [
+        "original_lightning4"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "lightx2v/Qwen-Image-2512-Lightning",
+      "revision": "a52649c9d0f6e1a248bff13f0df33bb8a2abdb52",
+      "source_path": "Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+      "url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+      "model_card_url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/blob/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/README.md",
+      "metadata_url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-2512-Lightning/revision/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52?blobs=true",
+      "sha256": "de0d236e54ecf2c43b32447d13478c6eae0d361b1fed48c69675b084fa240d87",
+      "size_bytes": 849608296,
+      "bytes": 849608296,
+      "source_url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/blob/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+      "stages": [
+        "original"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "official_publisher",
+      "local": {
+        "present": true,
+        "size_bytes": 849608296,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-image-lightning-8",
+      "path": "loras/Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+      "kind": "lora",
+      "groups": [
+        "original_lightning8"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "lightx2v/Qwen-Image-2512-Lightning",
+      "revision": "a52649c9d0f6e1a248bff13f0df33bb8a2abdb52",
+      "source_path": "Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+      "url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/resolve/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+      "model_card_url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/blob/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/README.md",
+      "metadata_url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-2512-Lightning/revision/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52?blobs=true",
+      "sha256": "4f98e28203397d36fe10f1a122d8cb790096f8c5b916d7b1cfe103ae45555fc7",
+      "size_bytes": 1698951104,
+      "bytes": 1698951104,
+      "source_url": "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning/blob/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52/Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+      "stages": [
+        "original"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "official_publisher",
+      "local": {
+        "present": true,
+        "size_bytes": 1698951104,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-edit-lightning-4",
+      "path": "loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+      "kind": "lora",
+      "groups": [
+        "style_lightning4"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "lightx2v/Qwen-Image-Edit-2511-Lightning",
+      "revision": "d74eba145674fd7e31b949324e148e21e7118abd",
+      "source_path": "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+      "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+      "model_card_url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/blob/d74eba145674fd7e31b949324e148e21e7118abd/README.md",
+      "metadata_url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-Edit-2511-Lightning/revision/d74eba145674fd7e31b949324e148e21e7118abd?blobs=true",
+      "sha256": "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f",
+      "size_bytes": 849608296,
+      "bytes": 849608296,
+      "source_url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/blob/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+      "stages": [
+        "style"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "official_publisher",
+      "local": {
+        "present": true,
+        "size_bytes": 849608296,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "qwen-edit-lightning-8",
+      "path": "loras/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+      "kind": "lora",
+      "groups": [
+        "style_lightning8"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "lightx2v/Qwen-Image-Edit-2511-Lightning",
+      "revision": "d74eba145674fd7e31b949324e148e21e7118abd",
+      "source_path": "Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+      "url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+      "model_card_url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/blob/d74eba145674fd7e31b949324e148e21e7118abd/README.md",
+      "metadata_url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-Edit-2511-Lightning/revision/d74eba145674fd7e31b949324e148e21e7118abd?blobs=true",
+      "sha256": "e2e24eda6295bf08222638b0b8278628461e86e8e1bc1b10411c7def13451262",
+      "size_bytes": 1698951104,
+      "bytes": 1698951104,
+      "source_url": "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/blob/d74eba145674fd7e31b949324e148e21e7118abd/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+      "stages": [
+        "style"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "official_publisher",
+      "local": {
+        "present": true,
+        "size_bytes": 1698951104,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "minimax-h3-fl2va",
+      "path": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "kind": "diffusion",
+      "groups": [
+        "video"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+      "source_path": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+      "sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+      "size_bytes": 20970379616,
+      "bytes": 20970379616,
+      "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "stages": [
+        "video"
+      ],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 20970379616,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "minimax-h3-qwen3-vl",
+      "path": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "kind": "text_vision_encoder",
+      "groups": [
+        "video"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+      "source_path": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+      "sha256": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+      "size_bytes": 15687142551,
+      "bytes": 15687142551,
+      "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "stages": [
+        "video"
+      ],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 15687142551,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      },
+      "provenance": {
+        "converted_from": "https://huggingface.co/cybermotaz/Qwen3-VL-32B-Instruct-NVFP4",
+        "note": "Comfy-Org card explicitly documents this conversion and says Blackwell GPU is not required. MiniMax license notes Qwen3-VL encoder is Apache 2.0; current download keeps the repository's stricter review gate."
+      }
+    },
+    {
+      "id": "minimax-h3-turbo-v4",
+      "path": "loras/minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+      "kind": "lora",
+      "groups": [
+        "video"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI",
+      "revision": "c59f95fb95cd7185816b93a0af1d01a4a11fa808",
+      "source_path": "minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+      "url": "https://huggingface.co/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI/resolve/c59f95fb95cd7185816b93a0af1d01a4a11fa808/minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+      "model_card_url": "https://huggingface.co/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI/blob/c59f95fb95cd7185816b93a0af1d01a4a11fa808/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI/revision/c59f95fb95cd7185816b93a0af1d01a4a11fa808?blobs=true",
+      "sha256": "166bf9dc6b5d952e0aea384d722b5a8d92146992ee6e007c2d38b65d45c4479a",
+      "size_bytes": 620285656,
+      "bytes": 620285656,
+      "source_url": "https://huggingface.co/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI/blob/c59f95fb95cd7185816b93a0af1d01a4a11fa808/minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+      "stages": [
+        "video"
+      ],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_community_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 620285656,
+        "size_matches_publisher": true,
+        "sha256_verified": true,
+        "sha256": "166bf9dc6b5d952e0aea384d722b5a8d92146992ee6e007c2d38b65d45c4479a"
+      },
+      "provenance": {
+        "derived_from": "https://huggingface.co/larryvrh/MiniMax-H3-Turbo-Lora",
+        "statement": "Abiray model card credits larryvrh as trainer and states this file is structurally pruned for native ComfyUI. Local SHA-256 equals publisher LFS SHA-256.",
+        "independent_license_file_present": false,
+        "license_caveat": "Abiray metadata declares MiniMax H3 community license but its relative LICENSE link has no LICENSE file. Do not interpret upstream trainer Apache metadata as removing base-model restrictions. H3 acceptance gate records review of MiniMax license and this exact publisher card; it is not proof of commercial or territorial authorization."
+      }
+    },
+    {
+      "id": "minimax-h3-video-vae",
+      "path": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "kind": "video_vae",
+      "groups": [
+        "video"
+      ],
+      "active": true,
+      "default": true,
+      "scope": "active",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+      "source_path": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_fp16.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+      "sha256": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
+      "size_bytes": 5207808496,
+      "bytes": 5207808496,
+      "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_video_vae_fp16.safetensors",
+      "stages": [
+        "video"
+      ],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 5207808496,
+        "size_matches_publisher": true,
+        "sha256_verified": true
+      }
+    },
+    {
+      "id": "z-image-turbo",
+      "path": "diffusion_models/z_image_turbo_bf16.safetensors",
+      "kind": "diffusion",
+      "groups": [
+        "legacy_z_image_helper"
+      ],
+      "active": false,
+      "default": false,
+      "scope": "legacy",
+      "repository": "Comfy-Org/z_image_turbo",
+      "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5",
+      "source_path": "split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/z_image_turbo/revision/6fc90a3b1b653e935a0d175e260736de25b84df5?blobs=true",
+      "sha256": "2407613050b809ffdff18a4ac99af83ea6b95443ecebdf80e064a79c825574a6",
+      "size_bytes": 12309866400,
+      "bytes": 12309866400,
+      "source_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+      "stages": [
+        "legacy"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 12309866400,
+        "size_matches_publisher": true,
+        "sha256_verified": false
+      },
+      "scope_reason": "Referenced only by retained z_image_prompt helper; current candidates CLI and GUI call qwen_generate_prompt. Not downloaded by default."
+    },
+    {
+      "id": "z-image-qwen3-4b",
+      "path": "text_encoders/qwen_3_4b.safetensors",
+      "kind": "text_encoder",
+      "groups": [
+        "legacy_z_image_helper"
+      ],
+      "active": false,
+      "default": false,
+      "scope": "legacy",
+      "repository": "Comfy-Org/z_image_turbo",
+      "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5",
+      "source_path": "split_files/text_encoders/qwen_3_4b.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/text_encoders/qwen_3_4b.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/z_image_turbo/revision/6fc90a3b1b653e935a0d175e260736de25b84df5?blobs=true",
+      "sha256": "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a",
+      "size_bytes": 8044982048,
+      "bytes": 8044982048,
+      "source_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/text_encoders/qwen_3_4b.safetensors",
+      "stages": [
+        "legacy"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 8044982048,
+        "size_matches_publisher": true,
+        "sha256_verified": false
+      },
+      "scope_reason": "Referenced only by retained z_image_prompt helper; current candidates CLI and GUI call qwen_generate_prompt. Not downloaded by default."
+    },
+    {
+      "id": "z-image-vae",
+      "path": "vae/ae.safetensors",
+      "kind": "vae",
+      "groups": [
+        "legacy_z_image_helper"
+      ],
+      "active": false,
+      "default": false,
+      "scope": "legacy",
+      "repository": "Comfy-Org/z_image_turbo",
+      "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5",
+      "source_path": "split_files/vae/ae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/vae/ae.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/z_image_turbo/revision/6fc90a3b1b653e935a0d175e260736de25b84df5?blobs=true",
+      "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38",
+      "size_bytes": 335304388,
+      "bytes": 335304388,
+      "source_url": "https://huggingface.co/Comfy-Org/z_image_turbo/blob/6fc90a3b1b653e935a0d175e260736de25b84df5/split_files/vae/ae.safetensors",
+      "stages": [
+        "legacy"
+      ],
+      "license_id": "apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "requires_acceptance": false,
+      "gated": false,
+      "license": {
+        "id": "apache-2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0",
+        "requires_acceptance": false
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 335304388,
+        "size_matches_publisher": true,
+        "sha256_verified": false
+      },
+      "scope_reason": "Referenced only by retained z_image_prompt helper; current candidates CLI and GUI call qwen_generate_prompt. Not downloaded by default."
+    },
+    {
+      "id": "minimax-h3-ref2va",
+      "path": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "kind": "diffusion",
+      "groups": [],
+      "active": false,
+      "default": false,
+      "scope": "unused",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+      "source_path": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+      "sha256": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+      "size_bytes": 20970379616,
+      "bytes": 20970379616,
+      "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "stages": [],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 20970379616,
+        "size_matches_publisher": true,
+        "sha256_verified": false
+      },
+      "scope_reason": "Installed locally but not referenced by active Character Studio workflow; not downloaded by default."
+    },
+    {
+      "id": "minimax-h3-audio-vae",
+      "path": "vae/minimax_h3_audio_vae_fp32.safetensors",
+      "kind": "audio_vae",
+      "groups": [],
+      "active": false,
+      "default": false,
+      "scope": "unused",
+      "repository": "Comfy-Org/MiniMax-H3",
+      "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+      "source_path": "vae/minimax_h3_audio_vae_fp32.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors",
+      "model_card_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/README.md",
+      "metadata_url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+      "sha256": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+      "size_bytes": 605254808,
+      "bytes": 605254808,
+      "source_url": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/e5eb578a89295337b8ff433a035929ce0279e0b6/vae/minimax_h3_audio_vae_fp32.safetensors",
+      "stages": [],
+      "license_id": "minimax-h3-community-license-agreement",
+      "license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+      "requires_acceptance": true,
+      "gated": false,
+      "license": {
+        "id": "minimax-h3-community-license-agreement",
+        "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+        "requires_acceptance": true
+      },
+      "source_kind": "verified_comfy_org_repack",
+      "local": {
+        "present": true,
+        "size_bytes": 605254808,
+        "size_matches_publisher": true,
+        "sha256_verified": false
+      },
+      "scope_reason": "Installed locally but not referenced by active Character Studio workflow; not downloaded by default."
+    }
+  ],
+  "other_installed_files": [
+    {
+      "path": "loras/NSFW_master_ZIT.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 1242628336,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference; not included in default download list."
+    },
+    {
+      "path": "vae_approx/taef1_decoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2464414,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taef1_encoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2464424,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesd3_decoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2464414,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesd3_encoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2464424,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesd_decoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2450590,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesd_encoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2450568,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesdxl_decoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2450590,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "vae_approx/taesdxl_encoder.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 2450568,
+      "source_status": "not_verified_not_required",
+      "url": null,
+      "reason": "No active workflow reference. Preview decoders also unused because launcher sets --preview-method none."
+    },
+    {
+      "path": "legacy-backup/qwen_image_2512_fp8_e4m3fn_scaled.safetensors",
+      "active": false,
+      "default": false,
+      "size_bytes": 20487870224,
+      "source_status": "not_verified_local_backup",
+      "url": null,
+      "reason": "Excluded legacy scaled backup; current graph uses the unscaled-named Qwen-Image-2512 fp8 file."
+    }
+  ],
+  "coverage": {
+    "source": "studio_data.py REQUIRED_MODELS + ACCELERATION_LORAS",
+    "required_paths": [
+      "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+      "diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+      "loras/Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+      "loras/Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+      "loras/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+      "loras/Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+      "loras/minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+      "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "vae/minimax_h3_video_vae_fp16.safetensors",
+      "vae/qwen_image_vae.safetensors"
+    ],
+    "missing": [],
+    "unexpected_active": [],
+    "extra_vision_encoder_required": false,
+    "upscaler_required": false,
+    "external_custom_nodes_required": false,
+    "details": "Qwen VL files include multimodal encoders. No separate CLIPVision, ControlNet, upscaler, face or background-removal weights are referenced by the inspected graphs. White-background cleanup is local image/video processing code."
+  },
+  "runtime": {
+    "comfyui_repository": "https://github.com/Comfy-Org/ComfyUI",
+    "comfyui_revision": "72865f4f27eaf5396f8f36370e0a2be3a9a090ee",
+    "comfyui_version": "0.33.1",
+    "tracked_content_diff_ignoring_eol": "",
+    "untracked_files": "",
+    "note": "Ordinary git status reports CRLF/LF differences. Content diff ignoring end-of-line whitespace is empty. No third-party custom node dependencies were found; launch flags disable all custom/API nodes and preview.",
+    "required_nodes": [
+      "BasicGuider",
+      "BasicScheduler",
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "ConditioningZeroOut",
+      "CreateVideo",
+      "EmptySD3LatentImage",
+      "KSampler",
+      "KSamplerSelect",
+      "LoadImage",
+      "LoraLoaderModelOnly",
+      "MiniMaxH3ImageToVideo",
+      "MiniMaxH3SigmaShift",
+      "ModelSamplingAuraFlow",
+      "RandomNoise",
+      "SamplerCustomAdvanced",
+      "SaveImage",
+      "SaveVideo",
+      "TextEncodeQwenImageEditPlus",
+      "UNETLoader",
+      "VAEDecode",
+      "VAEDecodeTiled",
+      "VAELoader"
+    ],
+    "native_node_sources": [
+      "nodes.py",
+      "comfy_extras/nodes_minimax_h3.py",
+      "comfy_extras/nodes_qwen.py",
+      "comfy_extras/nodes_video.py",
+      "comfy_extras/nodes_custom_sampler.py",
+      "comfy_extras/nodes_model_advanced.py"
+    ],
+    "site_packages_record_check": [
+      {
+        "distribution": "comfy_aimdo-0.4.13.dist-info",
+        "python_files_checked": 7,
+        "mismatches": []
+      },
+      {
+        "distribution": "comfy_kitchen-0.2.31.dist-info",
+        "python_files_checked": 40,
+        "mismatches": []
+      },
+      {
+        "distribution": "transformers-5.14.1.dist-info",
+        "python_files_checked": 2556,
+        "mismatches": []
+      },
+      {
+        "distribution": "torchaudio-2.11.0+cu130.dist-info",
+        "python_files_checked": 78,
+        "mismatches": []
+      }
+    ]
+  },
+  "license_review": {
+    "h3_license_id": "minimax-h3-community-license-agreement",
+    "h3_license_url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE",
+    "h3_license_gated_on_hf": false,
+    "requires_explicit_acceptance_for_new_download": true,
+    "automatic_acceptance_performed": false,
+    "caveats": [
+      "MiniMax H3 license includes territorial and commercial conditions; existing possession and HF ungated status do not establish permission for a new installation or commercial use.",
+      "Official Comfy tutorial says commercial local outputs require a MiniMax commercial license; upstream pinned license has specific territory/revenue/UI clauses. Read the linked authoritative terms rather than infer blanket commercial permission.",
+      "Abiray repack metadata adopts H3 community terms and credits its upstream trainer but has no independent LICENSE file; no permissive sublicense is asserted.",
+      "This repository should publish metadata and downloader code only; no model or third-party runtime weights are redistributed."
+    ]
+  },
+  "source_links": [
+    "https://docs.comfy.org/tutorials/video/minimax/minimax-h3",
+    "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_qwen_Image_2512.json",
+    "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI",
+    "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI",
+    "https://huggingface.co/lightx2v/Qwen-Image-2512-Lightning",
+    "https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning",
+    "https://huggingface.co/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI",
+    "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE"
+  ],
+  "verification_followup": {
+    "date": "2026-10-09",
+    "all_12_active_local_sha256_match_publisher": true,
+    "method": "setup_env.py --check --verify-existing; read-only full hashes; no downloads"
+  }
+}

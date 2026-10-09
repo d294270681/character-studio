@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "python": ".venv/Scripts/python.exe",
+  "comfy_python": ".venv/Scripts/python.exe",
+  "comfy_dir": "runtime/ComfyUI",
+  "model_roots": ["models"],
+  "data_dir": "data",
+  "comfy_input_dir": "data/comfy/input",
+  "comfy_output_dir": "data/comfy/output",
+  "comfy_url": "http://127.0.0.1:8189",
+  "export_dir": "exports",
+  "godot_project": null,
+  "godot_executable": null
+}

@@ -1,0 +1,70 @@
+default_model = "alpha/opus"
+
+[providers.alpha]
+type = "anthropic"
+base_url = "http://127.0.0.1:9/v1"
+api_key = "DUMMY-ALPHA-KEY"
+
+[providers.alpha.custom_headers]
+x-dummy = "DUMMY-HEADER-VALUE"
+
+[providers.beta]
+type = "kimi"
+base_url = "http://127.0.0.1:9/v1"
+api_key = "DUMMY-BETA-KEY"
+
+[providers."managed:gamma"]
+type = "openai"
+api_key = ""
+
+[providers."managed:gamma".oauth]
+storage = "file"
+key = "oauth/dummy"
+
+[models."alpha/opus"]
+provider = "alpha"
+model = "opus"
+max_context_size = 200000
+capabilities = [ "thinking", "image_in", "tool_use" ]
+display_name = "Alpha Opus"
+support_efforts = [ "low", "medium", "high", "max" ]
+default_effort = "high"
+
+[models."alpha/always"]
+provider = "alpha"
+model = "opus-always"
+max_context_size = 200000
+capabilities = [ "thinking", "always_thinking", "tool_use" ]
+display_name = "Alpha Always"
+
+[models."alpha/no-thinking"]
+provider = "alpha"
+model = "plain"
+max_context_size = 200000
+capabilities = [ "tool_use" ]
+display_name = "Alpha Plain"
+
+[models."beta/k3"]
+provider = "beta"
+model = "k3"
+max_context_size = 262144
+capabilities = [ "thinking", "video_in", "tool_use" ]
+support_efforts = [ "low", "high", "max" ]
+default_effort = "high"
+
+[models."gamma/override"]
+provider = "managed:gamma"
+model = "override-model"
+max_context_size = 128000
+capabilities = [ "tool_use" ]
+display_name = "Gamma Plain"
+
+[models."gamma/override".overrides]
+capabilities = [ "thinking", "tool_use" ]
+support_efforts = [ "low", "high" ]
+default_effort = "low"
+display_name = "Gamma Overridden"
+
+[thinking]
+enabled = true
+effort = "high"

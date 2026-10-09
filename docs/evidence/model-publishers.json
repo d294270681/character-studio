@@ -1,0 +1,333 @@
+[
+  {
+    "url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image_ComfyUI/revision/1f12b17be14c89b026c51a91d67c32f84bb047bc?blobs=true",
+    "id": "Comfy-Org/Qwen-Image_ComfyUI",
+    "revision": "1f12b17be14c89b026c51a91d67c32f84bb047bc",
+    "gated": false,
+    "card_data": {
+      "license": "apache-2.0",
+      "tags": [
+        "comfyui",
+        "diffusion-single-file"
+      ],
+      "base_model": [
+        "Qwen/Qwen-Image",
+        "Qwen/Qwen-Image-2512",
+        "DiffSynth-Studio/Qwen-Image-Distill-Full"
+      ]
+    },
+    "files": [
+      {
+        "rfilename": "split_files/diffusion_models/qwen_image_2512_fp8_e4m3fn.safetensors",
+        "blobId": "1f5fd6721e433151947af86e5f411dddd4b45fb6",
+        "size": 20430679144,
+        "lfs": {
+          "sha256": "5dc80554d5d83390046a2f4a94ece06afb7700bf7b0aaf8bde9769793875876b",
+          "size": 20430679144,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "blobId": "8b8c966cfbe7ac6aee0dc1d474c20d25913b5088",
+        "size": 9384670680,
+        "lfs": {
+          "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+          "size": 9384670680,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "split_files/vae/qwen_image_vae.safetensors",
+        "blobId": "0e2c65956cb47e2be7d1def5a08ddd58a0d5beb5",
+        "size": 253806246,
+        "lfs": {
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "size": 253806246,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/Comfy-Org/Qwen-Image-Edit_ComfyUI/revision/f68ace85e60b4a02a323e394253731947657b7d2?blobs=true",
+    "id": "Comfy-Org/Qwen-Image-Edit_ComfyUI",
+    "revision": "f68ace85e60b4a02a323e394253731947657b7d2",
+    "gated": false,
+    "card_data": {
+      "license": "apache-2.0",
+      "tags": [
+        "comfyui",
+        "diffusion-single-file"
+      ],
+      "base_model": [
+        "Qwen/Qwen-Image-Edit",
+        "Qwen/Qwen-Image-Edit-2509",
+        "Qwen/Qwen-Image-Edit-2511",
+        "FireRedTeam/FireRed-Image-Edit-1.0"
+      ]
+    },
+    "files": [
+      {
+        "rfilename": "split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors",
+        "blobId": "903aa435ba9a37048d86e45887c830cd9d04610d",
+        "size": 20533762817,
+        "lfs": {
+          "sha256": "c9fdc158e46d3b61ef75f21ae866ca2fe808bf4a53643120d1c1e87c19280a4e",
+          "size": 20533762817,
+          "pointerSize": 136
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-2512-Lightning/revision/a52649c9d0f6e1a248bff13f0df33bb8a2abdb52?blobs=true",
+    "id": "lightx2v/Qwen-Image-2512-Lightning",
+    "revision": "a52649c9d0f6e1a248bff13f0df33bb8a2abdb52",
+    "gated": false,
+    "card_data": {
+      "license": "apache-2.0",
+      "tags": [
+        "diffusion-single-file",
+        "comfyui",
+        "distillation",
+        "LoRA",
+        "lora",
+        "Qwen-Image"
+      ],
+      "base_model": [
+        "Qwen/Qwen-Image-2512"
+      ],
+      "pipeline_tags": [
+        "text-to-image"
+      ],
+      "library_name": "diffusers",
+      "pipeline_tag": "text-to-image"
+    },
+    "files": [
+      {
+        "rfilename": "Qwen-Image-2512-Lightning-4steps-V1.0-bf16.safetensors",
+        "blobId": "6d2eafe20f8669b0b7b7a976eadcec9581e5f60e",
+        "size": 849608296,
+        "lfs": {
+          "sha256": "de0d236e54ecf2c43b32447d13478c6eae0d361b1fed48c69675b084fa240d87",
+          "size": 849608296,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "Qwen-Image-2512-Lightning-8steps-V1.0-fp32.safetensors",
+        "blobId": "25125483a179cbb495b8017e5c778d2d22d37fd0",
+        "size": 1698951104,
+        "lfs": {
+          "sha256": "4f98e28203397d36fe10f1a122d8cb790096f8c5b916d7b1cfe103ae45555fc7",
+          "size": 1698951104,
+          "pointerSize": 135
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/lightx2v/Qwen-Image-Edit-2511-Lightning/revision/d74eba145674fd7e31b949324e148e21e7118abd?blobs=true",
+    "id": "lightx2v/Qwen-Image-Edit-2511-Lightning",
+    "revision": "d74eba145674fd7e31b949324e148e21e7118abd",
+    "gated": false,
+    "card_data": {
+      "license": "apache-2.0",
+      "tags": [
+        "diffusion-single-file",
+        "comfyui",
+        "distillation",
+        "LoRA",
+        "lora",
+        "Qwen-Image",
+        "Qwen-Image-Edit"
+      ],
+      "base_model": [
+        "Qwen/Qwen-Image-Edit-2511"
+      ],
+      "pipeline_tags": [
+        "image-to-image",
+        "text-to-image"
+      ],
+      "library_name": "diffusers",
+      "pipeline_tag": "image-to-image"
+    },
+    "files": [
+      {
+        "rfilename": "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+        "blobId": "155da46c738c7934676bf1580b43ca65f4f1d049",
+        "size": 849608296,
+        "lfs": {
+          "sha256": "22226e8d05d354bb356627d428809f5afd7819399b077238a2b70a82883a904f",
+          "size": 849608296,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "Qwen-Image-Edit-2511-Lightning-8steps-V1.0-fp32.safetensors",
+        "blobId": "c4860da6c12da003a623f71966f02eca2c543602",
+        "size": 1698951104,
+        "lfs": {
+          "sha256": "e2e24eda6295bf08222638b0b8278628461e86e8e1bc1b10411c7def13451262",
+          "size": 1698951104,
+          "pointerSize": 135
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/Comfy-Org/MiniMax-H3/revision/e5eb578a89295337b8ff433a035929ce0279e0b6?blobs=true",
+    "id": "Comfy-Org/MiniMax-H3",
+    "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+    "gated": false,
+    "card_data": {
+      "license": "other",
+      "license_name": "minimax-h3-community-license-agreement",
+      "license_link": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE",
+      "tags": [
+        "comfyui",
+        "diffusion-single-file"
+      ],
+      "base_model": [
+        "MiniMaxAI/MiniMax-H3"
+      ]
+    },
+    "files": [
+      {
+        "rfilename": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "blobId": "552dd33920a833fa613c73f0ca2335bb6ff0e4d1",
+        "size": 20970379616,
+        "lfs": {
+          "sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+          "size": 20970379616,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "blobId": "7d456c7b17fc9ba27722ddc4971bfb6e46bf831a",
+        "size": 20970379616,
+        "lfs": {
+          "sha256": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+          "size": 20970379616,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "blobId": "c8148bfabfef79b69607053f977a39e0736429c0",
+        "size": 15687142551,
+        "lfs": {
+          "sha256": "35a88d51044231fe332301d7a62aa81e3f2cba62febeb446e2c1e3e0ef76f2c6",
+          "size": 15687142551,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "vae/minimax_h3_audio_vae_fp32.safetensors",
+        "blobId": "90bf58595930e7d56cbe9fecb4ea647d5c0e3aec",
+        "size": 605254808,
+        "lfs": {
+          "sha256": "8e505d95dd1561d47abd43d4238fd40d9bb1ae9e147ed0a4cba778d76ae4db48",
+          "size": 605254808,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "vae/minimax_h3_video_vae_fp16.safetensors",
+        "blobId": "56a63ef27e68f3b6d5cd4c704f51f291e40f3e11",
+        "size": 5207808496,
+        "lfs": {
+          "sha256": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
+          "size": 5207808496,
+          "pointerSize": 135
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI/revision/c59f95fb95cd7185816b93a0af1d01a4a11fa808?blobs=true",
+    "id": "Abiray/MiniMax-H3-Turbo-Lora-Pruned-ComfyUI",
+    "revision": "c59f95fb95cd7185816b93a0af1d01a4a11fa808",
+    "gated": false,
+    "card_data": {
+      "pipeline_tag": "image-text-to-video",
+      "license": "other",
+      "license_name": "minimax-h3-community-license-agreement",
+      "license_link": "LICENSE",
+      "library_name": "diffusers",
+      "tags": [
+        "text-to-video",
+        "image-to-video",
+        "image-text-to-video",
+        "video-to-video",
+        "text-to-audio-video",
+        "multimodal",
+        "comfyui"
+      ],
+      "base_model": "MiniMaxAI/MiniMax-H3",
+      "base_model_relation": "quantized"
+    },
+    "files": [
+      {
+        "rfilename": "minimax_h3_turbo_4step_ckpt600_V4.safetensors",
+        "blobId": "77a8a6eaa9dec003809f265bbd8ed48530f0812f",
+        "size": 620285656,
+        "lfs": {
+          "sha256": "166bf9dc6b5d952e0aea384d722b5a8d92146992ee6e007c2d38b65d45c4479a",
+          "size": 620285656,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://huggingface.co/api/models/Comfy-Org/z_image_turbo/revision/6fc90a3b1b653e935a0d175e260736de25b84df5?blobs=true",
+    "id": "Comfy-Org/z_image_turbo",
+    "revision": "6fc90a3b1b653e935a0d175e260736de25b84df5",
+    "gated": false,
+    "card_data": {
+      "license": "apache-2.0",
+      "tags": [
+        "comfyui",
+        "diffusion-single-file"
+      ],
+      "base_model": [
+        "Tongyi-MAI/Z-Image-Turbo"
+      ]
+    },
+    "files": [
+      {
+        "rfilename": "split_files/diffusion_models/z_image_turbo_bf16.safetensors",
+        "blobId": "7b3ffcac16fc5643fbc96e83f99e02cba071d96b",
+        "size": 12309866400,
+        "lfs": {
+          "sha256": "2407613050b809ffdff18a4ac99af83ea6b95443ecebdf80e064a79c825574a6",
+          "size": 12309866400,
+          "pointerSize": 136
+        }
+      },
+      {
+        "rfilename": "split_files/text_encoders/qwen_3_4b.safetensors",
+        "blobId": "8eb608c38dfe7461d3a72a8c3c1c5db10da90ee0",
+        "size": 8044982048,
+        "lfs": {
+          "sha256": "6c671498573ac2f7a5501502ccce8d2b08ea6ca2f661c458e708f36b36edfc5a",
+          "size": 8044982048,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "split_files/vae/ae.safetensors",
+        "blobId": "71f11a92800c4a93cead7cebc556531926ecfc33",
+        "size": 335304388,
+        "lfs": {
+          "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38",
+          "size": 335304388,
+          "pointerSize": 134
+        }
+      }
+    ]
+  }
+]
