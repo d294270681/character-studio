@@ -35,7 +35,8 @@ class RuntimePathTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="studio-path-test-")
         self.addCleanup(self.temp.cleanup)
-        self.folder = Path(self.temp.name)
+        # Hosted Windows runners can expose TEMP through an 8.3 path alias.
+        self.folder = Path(self.temp.name).resolve()
         self.app = fixture_app(self.folder / "a relocated checkout")
 
     def test_relocated_checkout_defaults_do_not_require_godot(self):
@@ -120,9 +121,9 @@ class RuntimePathTests(unittest.TestCase):
                                 check=True, capture_output=True, text=True, timeout=15)
         node = json.loads(result.stdout)
         python = sd.runtime_paths(self.app, {})
-        self.assertEqual(Path(node["app"]), python["app"])
-        self.assertEqual(Path(node["python"]), python["python"])
-        self.assertEqual(Path(node["data"]), python["data_dir"])
+        self.assertEqual(Path(node["app"]).resolve(), python["app"])
+        self.assertEqual(Path(node["python"]).resolve(), python["python"])
+        self.assertEqual(Path(node["data"]).resolve(), python["data_dir"])
 
 
 class PipelinePortabilityTests(unittest.TestCase):
@@ -141,7 +142,7 @@ class PipelinePortabilityTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(prefix="studio-pipeline-test-")
         self.addCleanup(self.temp.cleanup)
-        self.folder = Path(self.temp.name)
+        self.folder = Path(self.temp.name).resolve()
         # Any accidental process start or network request fails these tests.
         self.process = patch("subprocess.Popen", side_effect=AssertionError("Tests must not start services or inference"))
         self.network = patch("urllib.request.urlopen", side_effect=AssertionError("Tests must not access a live service"))
