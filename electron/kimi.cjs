@@ -491,7 +491,8 @@ class KimiRunner {
         // is unreachable we cannot safely assume that generation has stopped.
         const state = run.workflow ? await this.bridge.request('GET', '/api/state') : null;
         if (run.finishing) return;
-        if (run.workflow && (state.assistant?.id !== run.workflow.id || state.assistant.status !== 'running')) {
+        if (run.workflow && !state.assistant?.id) throw new Error('工作流状态暂时缺失，继续核实本地任务。');
+        if (run.workflow && (state.assistant.id !== run.workflow.id || state.assistant.status !== 'running')) {
           const own = state.assistant?.id === run.workflow.id;
           const complete = own && state.assistant.status === 'complete';
           if (own && state.assistant.status === 'cancelled') run.cancelled = true;
@@ -502,16 +503,19 @@ class KimiRunner {
         run.progressStatus = progress;
         this.emit({ type: 'progress', ...progress });
         run.record?.('progress', progress);
-        const marker = `${progress.phase}:${Math.floor(progress.idle_seconds / 30)}`;
+        const marker = `${progress.phase}:${progress.job_id}:${progress.node_type}:${!!progress.warning}:${Math.floor(progress.idle_seconds / 30)}`;
         if (run.progressMarker !== marker) {
           run.progressMarker = marker;
           run.trace?.(progress.label, { elapsed_seconds: progress.elapsed_seconds, idle_seconds: progress.idle_seconds,
-            thought_chunks: progress.thought_chunks }, progress.error ? 'error' : 'info');
+            thought_chunks: progress.thought_chunks, execution_kind: progress.execution_kind,
+            job_id: progress.job_id, prompt_id: progress.prompt_id, node_type: progress.node_type,
+            warning: progress.warning }, progress.error ? 'error' : progress.warning ? 'warn' : 'info');
         }
         if (progress.error) await this.finishRun(run, 1, progress.error);
       } catch (error) {
         if (!run.finishing) {
-          const progress = { phase: 'service_unavailable', label: '本地任务状态暂时不可用，正在重新连接' };
+          const progress = { ...run.progress.snapshot(null, run.workflow?.id),
+            phase: 'service_unavailable', label: '本地任务状态暂时不可用，正在重新连接' };
           run.progressStatus = progress;
           this.emit({ type: 'progress', ...progress });
           run.record?.('state_check_failed', { message: acpErrorText(error) });

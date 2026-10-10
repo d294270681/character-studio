@@ -7,6 +7,21 @@ import time
 import aiohttp
 
 
+def node_phase(node_kind):
+    if node_kind in {"VAEDecode", "VAEDecodeTiled", "SaveImage", "SaveVideo", "CreateVideo"}:
+        return "decoding", "正在解码并保存结果…"
+    if "Loader" in node_kind or "LoadModel" in node_kind:
+        return "loading", "正在加载模型权重…"
+    if "TextEncode" in node_kind or "CLIPTextEncode" in node_kind:
+        return "encoding", "正在加载文本模型并编码提示词…"
+    if "Encode" in node_kind:
+        return "encoding", "正在编码参考图或视频…"
+    if "Sampler" in node_kind:
+        # Samplers load diffusion weights lazily before the first progress event.
+        return "loading", "正在加载推理模型并准备采样…"
+    return "preparing", "正在准备推理输入…"
+
+
 async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, job_dir, run_dir,
                          timing, emit, save_json, cancelled_type, *, request_timeout=10,
                          poll_interval=2, deadline_seconds=7200, tick_interval=0.1):
@@ -26,10 +41,19 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
                    "cancellation_requested": False, "termination_confirmed": False}
     next_warning = 0
     current_socket = websocket
+    phase = "queued"
+    next_heartbeat = 0
 
     def persist():
         with contextlib.suppress(OSError):
             save_json(job_dir / "monitor.json", diagnostics)
+
+    def report_phase(value, message, **detail):
+        nonlocal phase
+        phase = value
+        diagnostics.update(phase=value, **detail)
+        persist()
+        emit("status", phase=value, message=message, prompt_id=prompt_id, **detail)
 
     def warn(error, source):
         nonlocal next_warning
@@ -47,7 +71,7 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
             stop_reason = reason
             diagnostics.update(cancellation_requested=True, stop_reason=reason)
             persist()
-            emit("status", message="正在取消当前任务，等待生成服务确认…", prompt_id=prompt_id)
+            report_phase("cancelling", "正在取消当前任务，等待生成服务确认…")
             wake_poll.set()
 
     async def http(path, payload=None):
@@ -66,7 +90,7 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
             return None
 
     async def poll():
-        nonlocal entry
+        nonlocal entry, next_heartbeat
         while not confirmed.is_set():
             wake_poll.clear()
             if stop_reason is not None:
@@ -90,11 +114,32 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
                 save_json(job_dir / "history.json", entry)
                 confirmed.set()
                 return
+            if stop_reason is None:
+                queue = await observe("/queue")
+                if (isinstance(queue, dict) and isinstance(queue.get("queue_running"), list)
+                        and isinstance(queue.get("queue_pending"), list)):
+                    owned = lambda rows: any(isinstance(row, (list, tuple)) and len(row) > 1
+                                             and row[1] == prompt_id for row in rows)
+                    queue_status = ("running" if owned(queue["queue_running"]) else
+                                    "queued" if owned(queue["queue_pending"]) else None)
+                    if queue_status and stop_reason is None:
+                        if phase == "queued":
+                            if queue_status == "running":
+                                report_phase("preparing", "推理任务已开始，等待节点进度…")
+                            elif diagnostics.get("queue_status") != "queued":
+                                report_phase("queued", "生成任务正在排队…")
+                        if queue_status != diagnostics.get("queue_status") or time.monotonic() >= next_heartbeat:
+                            next_heartbeat = time.monotonic() + 15
+                            diagnostics.update(queue_status=queue_status, observed_seconds=round(time.monotonic() - started, 1))
+                            persist()
+                            emit("heartbeat", prompt_id=prompt_id, queue_status=queue_status)
+                    # An absent/malformed queue entry never proves completion:
+                    # only history confirms success or a real execution error.
             with contextlib.suppress(asyncio.TimeoutError):
                 await asyncio.wait_for(wake_poll.wait(), poll_interval)
 
     async def read_socket():
-        nonlocal current_socket
+        nonlocal current_socket, phase
         while not confirmed.is_set():
             try:
                 if current_socket is None or current_socket.closed:
@@ -118,8 +163,12 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
                 kind = packet.get("type")
                 if kind == "progress":
                     maximum = data.get("max", 0)
+                    if stop_reason is None:
+                        phase = "generating"
+                        diagnostics["phase"] = phase
                     emit("progress", value=data.get("value", 0), maximum=maximum,
-                         message=f"采样 {data.get('value', 0)} / {maximum}")
+                         message=f"采样 {data.get('value', 0)} / {maximum}",
+                         phase="cancelling" if stop_reason else "generating", prompt_id=prompt_id)
                 elif kind == "execution_cached":
                     timing.mark_cached(data.get("nodes"))
                 elif kind == "executing":
@@ -127,10 +176,9 @@ async def monitor_prompt(session, websocket, url, prompt_id, client_id, graph, j
                     if node is not None:
                         timing.start(node)
                         node_kind = graph.get(str(node), {}).get("class_type", "")
-                        text = "解码并保存结果…" if node_kind in {
-                            "VAEDecode", "VAEDecodeTiled", "SaveImage", "SaveVideo", "CreateVideo"
-                        } else "正在加载模型和准备推理…"
-                        emit("status", message=text)
+                        value, text = node_phase(node_kind)
+                        if stop_reason is None:
+                            report_phase(value, text, node_id=str(node), node_type=node_kind)
                     else:
                         timing.close()
                         wake_poll.set()

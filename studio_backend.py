@@ -205,7 +205,8 @@ async def execute_graph(graph, job_dir, run_dir, stage, timing):
                 submission = await response.json()
             save_json(job_dir / "submission.json", submission)
             prompt_id = submission["prompt_id"]
-            emit("submitted", prompt_id=prompt_id, job_directory=str(job_dir))
+            emit("submitted", prompt_id=prompt_id, job_directory=str(job_dir), phase="queued",
+                 message="任务已提交，等待本地推理执行…")
             return await monitor_prompt(session, websocket, URL, prompt_id, client_id,
                                         graph, job_dir, run_dir, timing, emit, save_json, Cancelled)
 
@@ -239,7 +240,7 @@ async def generate_images(request, run_dir):
     records = []
     for index in range(count):
         check_cancel(run_dir)
-        emit("status", message=f"正在生成第 {index + 1} / {count} 张…")
+        emit("status", phase="preparing", message=f"正在准备第 {index + 1} / {count} 张…")
         job = run_dir / f"image-{index + 1}"
         prefix = f"character_studio/{run_dir.name}/image_{index + 1}"
         if stage == "original":
@@ -535,7 +536,7 @@ def main():
     try:
         check_cancel(run_dir)
         if stage in {"original", "style", "video"}:
-            emit("status", message="准备本地生成服务…")
+            emit("status", phase="preparing", message="准备本地生成服务…")
             with contextlib.redirect_stdout(sys.stderr):
                 pipeline.ensure_server(URL)
             assert_idle(URL)
@@ -548,6 +549,7 @@ def main():
         elif stage == "release":
             result = {"stage": stage, **release_models(URL)}
         elif stage == "sprites":
+            emit("status", phase="processing", message="正在准备视频抽帧与精灵图转换…")
             result = {"stage": stage, "assets": convert_sprites(request, run_dir)}
         elif stage == "export":
             result = {"stage": stage, **export_godot(request, run_dir)}

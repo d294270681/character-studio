@@ -4,7 +4,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const { KimiRunner, kimiExecutable, permissionFor } = require('../kimi.cjs');
-const { findRoot } = require('../bridge.cjs');
 
 test('permission approval uses the offered one-time option and enforces the task mode', () => {
   const request = title => ({ toolCall: { title }, options: [
@@ -22,8 +21,8 @@ test('permission approval uses the offered one-time option and enforces the task
 });
 
 test('real Kimi ACP preserves custom agent tool allowlists on the model request', { skip: !kimiExecutable(), timeout: 60000 }, async () => {
-  const root = findRoot();
-  const folder = fs.mkdtempSync(path.join(root, 'verification', 'electron-studio', 'kimi-profile-'));
+  const { app, verification } = require('./test-paths.cjs').testPaths();
+  const folder = fs.mkdtempSync(path.join(verification, 'kimi-profile-'));
   const fakeHome = path.join(folder, 'home');
   fs.mkdirSync(fakeHome);
   const requests = [];
@@ -50,8 +49,8 @@ test('real Kimi ACP preserves custom agent tool allowlists on the model request'
   const configFile = path.join(fakeHome, 'config.toml');
   fs.writeFileSync(configFile, config);
   fs.writeFileSync(path.join(fakeHome, 'mcp.json'), JSON.stringify({ mcpServers: { character_studio: {
-    command: process.execPath, args: [path.join(root, 'tools', 'character-studio', 'electron', 'mcp.cjs')],
-    env: { CHARACTER_STUDIO_ROOT: root, CHARACTER_STUDIO_DATA: path.join(folder, 'data'), CHARACTER_STUDIO_PORT: '18195' },
+    command: process.execPath, args: [path.join(app, 'electron', 'mcp.cjs')],
+    env: { CHARACTER_STUDIO_ROOT: app, CHARACTER_STUDIO_DATA: path.join(folder, 'data'), CHARACTER_STUDIO_PORT: '18195' },
   } } }));
   const previousHome = process.env.KIMI_CODE_HOME;
   process.env.KIMI_CODE_HOME = fakeHome;
@@ -63,7 +62,7 @@ test('real Kimi ACP preserves custom agent tool allowlists on the model request'
       const { mode, model, effort } = scenario;
       let resolve;
       const complete = new Promise(done => { resolve = done; });
-      runner = new KimiRunner({ root, data: path.join(folder, 'data'), port: 18195, ensure: async () => {} }, packet => { if (packet.type === 'done') resolve(packet); });
+      runner = new KimiRunner({ root: app, data: path.join(folder, 'data'), port: 18195, ensure: async () => {} }, packet => { if (packet.type === 'done') resolve(packet); });
       const before = requests.length;
       const start = await runner.start({ mode, prompt: '只回复“工具范围验证完成”。', selection: { provider: 'mock', model, thinking: 'on', effort } });
       const timer = setTimeout(() => runner.cancel(), 20000);
@@ -85,7 +84,7 @@ test('real Kimi ACP preserves custom agent tool allowlists on the model request'
       checks.push({ mode, passed: true, ...actual });
     }
     assert.equal(fs.readFileSync(configFile, 'utf8'), config, 'ACP task settings changed the original config');
-    fs.writeFileSync(path.join(root, 'verification', 'electron-studio', 'kimi-profile-verification.json'),
+    fs.writeFileSync(path.join(verification, 'kimi-profile-verification.json'),
       JSON.stringify({ passed: true, config_preserved: true, checked_at: new Date().toISOString(), checks }, null, 2) + '\n');
   } finally {
     runner?.cancel();

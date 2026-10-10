@@ -858,7 +858,8 @@ export default function App() {
   let primaryOverride = null;
   if (workflowBusy && workflowStep) {
     if (stepStatus === 'running') {
-      primaryOverride = { label: stage === 'sprites' ? '正在转换精灵图…' : '正在生成…', busy: true };
+      primaryOverride = { label: activeJob?.message || kimiProgress?.label
+        || (stage === 'sprites' ? '正在转换精灵图…' : '正在生成…'), busy: true };
     } else if (stepStatus === 'preparing' || (stepStatus === 'pending' && assistant.currentStage === stage)) {
       primaryOverride = { label: kimiProgress?.label || 'Kimi 正在准备…', busy: true };
     }
@@ -872,7 +873,7 @@ export default function App() {
     ? `${kimiProgress?.label || 'Kimi 正在准备这一步'}，界面暂时锁定。`
     : '';
   const statusText = workflowBusy
-    ? `Kimi 工作流 · ${stepMessage(assistant, serverState?.jobs || []) || '执行中'}`
+    ? `Kimi 工作流 · ${activeJob?.message || kimiProgress?.label || stepMessage(assistant, serverState?.jobs || []) || '执行中'}`
     : status;
 
   return (

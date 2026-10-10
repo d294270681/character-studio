@@ -152,6 +152,7 @@ export default function KimiDrawer({
 
       {running && progress && <div className="drawer-note drawer-status" role="status" data-testid="kimi-progress">
         {progress.label}{Number.isFinite(progress.elapsed_seconds) ? ` · 已用时 ${progress.elapsed_seconds} 秒` : ''}
+        {progress.warning && <span className="drawer-progress-warning" data-testid="kimi-progress-warning">{progress.warning}</span>}
       </div>}
       <div className="drawer-body" ref={layout?.assistantBodyRef}>
       <div className="drawer-scroll" ref={scrollRef} onScroll={event => {

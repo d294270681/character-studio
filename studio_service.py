@@ -248,6 +248,12 @@ class StudioService:
 
     def workflow_current_step(self, assistant, stage=None):
         index = self.workflow_step_index(assistant)
+        # Inspecting candidates may reveal a bad result. Allow revising only
+        # the most recently completed step, before downstream work is submitted.
+        if stage is not None and index > 0 and assistant["steps"][index - 1]["stage"] == stage:
+            later = assistant["steps"][index:]
+            if not self.active_job and all(not item.get("job_ids") for item in later):
+                return index - 1, assistant["steps"][index - 1]
         if index >= len(assistant["steps"]):
             raise ValueError("工作流所有步骤已完成，请收口工作流。")
         step = assistant["steps"][index]
@@ -255,10 +261,12 @@ class StudioService:
             raise ValueError("当前步骤是「" + str(step["stage"]) + "」，不能操作「" + str(stage) + "」。")
         return index, step
 
-    def workflow_mark_preparing(self, assistant, stage):
+    def workflow_mark_preparing(self, assistant, stage, prompt_written=None):
         """Advance the UI to this stage as soon as the agent touches its form."""
         _, step = self.workflow_current_step(assistant, stage)
         step["status"] = "preparing"
+        if prompt_written is not None:
+            step["prompt_written"] = prompt_written
         assistant["current_stage"] = stage
         assistant["updated_at"] = timestamp()
         self.store.data["last_stage"] = STAGES.index(stage)
@@ -352,7 +360,17 @@ class StudioService:
                             "image_sizes": IMAGE_SIZES, "video_sizes": VIDEO_SIZES, "cell_sizes": CELL_SIZES},
                 "missing_models": missing, "comfy_online": self.comfy_check[1],
                 "jobs": jobs, "active_job": self.active_job, "assistant": self.assistant,
+                "execution": self.execution_snapshot(),
                 "api_version": 2}
+
+    def execution_snapshot(self):
+        """Expose the active worker independently of the limited recent-job list."""
+        job = self.jobs.get(self.active_job)
+        if not job:
+            return None
+        return {**job.get("execution", {}), "job_id": job["id"], "workflow_id": job.get("workflow_id"),
+                "stage": job["stage"], "status": job["status"], "label": job.get("message"),
+                "progress": job.get("progress"), "worker_pid": job.get("pid")}
 
     def asset(self, stage, asset_id=None):
         if stage not in STAGES:
@@ -445,6 +463,7 @@ class StudioService:
             # 工作流任务描述只作为首步的默认提示词，后续步骤用各自的表单/模板，避免串味。
             task = workflow.get("prompt") or ""
             if (index == 0 and task and len(task) <= PROMPT_LIMIT and "prompt" not in overrides
+                    and not step.get("prompt_written")
                     and (stage == "original" or not str(values.get("prompt") or "").strip())):
                 overrides["prompt"] = task
         values.update(overrides)
@@ -497,6 +516,7 @@ class StudioService:
         job = {"id": job_id, "stage": stage, "status": "starting", "created_at": timestamp(),
                "directory": str(folder), "project_path": str(self.store.path), "source": source,
                "workflow_id": workflow_id, "message": "正在准备任务…", "progress": None,
+               "execution": {"phase": "preparing", "updated_at": timestamp()},
                "assets": [], "events": [], "event_sequence": 0,
                "parameters": {key: request[key] for key in ("prompt", "width", "height", "steps", "count", "seed",
                               "acceleration", "length", "frames", "columns", "cell_size", "sampling", "alignment",
@@ -506,6 +526,8 @@ class StudioService:
         if workflow is not None:
             _, step = self.workflow_current_step(workflow, stage)
             step["status"] = "running"
+            if request.get("prompt"):
+                step["prompt_written"] = True
             step["job_ids"].append(job_id)
             workflow["current_stage"] = stage
             workflow["updated_at"] = timestamp()
@@ -607,8 +629,20 @@ class StudioService:
         job["events"].append(packet)
         job["events"] = job["events"][-80:]
         event = packet.get("event")
-        if event in {"status", "progress"}:
+        if event in {"status", "progress", "submitted"}:
             job["message"] = packet.get("message", job["message"])
+        execution = job.setdefault("execution", {})
+        if packet.get("phase"):
+            execution.update(phase=packet["phase"], updated_at=packet["timestamp"])
+            if packet["phase"] in {"preparing", "queued", "loading", "encoding"}:
+                job["progress"] = None
+        for name in ("prompt_id", "node_id", "node_type", "queue_status"):
+            if name in packet:
+                execution[name] = packet[name]
+        if event == "submitted":
+            execution.update(phase="queued", updated_at=packet["timestamp"], node_id=None, node_type=None)
+        if event == "heartbeat":
+            execution["heartbeat_at"] = packet["timestamp"]
         if event == "progress":
             job["progress"] = {"value": packet.get("value", 0), "maximum": packet.get("maximum", 0)}
         elif event == "asset":
@@ -862,10 +896,12 @@ class StudioService:
             if route == "/api/settings":
                 workflow = self.workflow_authorize_optional(body.get("workflow_id"))
                 if workflow is not None:
+                    self.require_idle()
                     self.workflow_current_step(workflow, body.get("stage"))
                 result = self.update_settings(body["stage"], body["values"])
                 if workflow is not None:
-                    self.workflow_mark_preparing(workflow, body["stage"])
+                    written = bool(str(body["values"].get("prompt") or "").strip()) if "prompt" in body["values"] else None
+                    self.workflow_mark_preparing(workflow, body["stage"], prompt_written=written)
                 return result
             if route == "/api/view":
                 self.store.data["last_stage"] = max(0, min(3, int(body["stage"])))

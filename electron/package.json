@@ -1,6 +1,6 @@
 {
   "name": "character-studio",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Local Qwen and MiniMax H3 character studio",
   "private": true,
   "main": "main.cjs",

@@ -42,6 +42,7 @@ const WORKFLOW_TOOLS = new Set(['studio_get_state', 'studio_set_parameters', 'st
 
 function compactJob(job) {
   return { job_id: job.id, stage: job.stage, status: job.status, message: job.message, progress: job.progress,
+    execution: job.execution,
     assets: job.assets, result: job.result, error: job.error, directory: job.directory, workflow_id: job.workflow_id };
 }
 function compactState(state) {
